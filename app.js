@@ -24,7 +24,7 @@ function foo() {
 try {
   foobar() // ReferenceError: Cannot access foobar before initialization
 } catch (e) {
-  console.log(e)
+  console.log(' Error Handled! for smooth program execution', e)
 }
 
 // Function Expression
@@ -32,7 +32,8 @@ const foobar = function () {}
 // Here we note that regular expression has been declared with const, for let we'll get the same error above on line 25: ReferenceError: Cannot access foobar before initialization
 
 function move() {
-  console.log(progress) // ReferenceError: Progress is not defined
+  console.log(progress) // ReferenceError: Cannot access progress before initialization
+  const progress
 }
 
 move()
