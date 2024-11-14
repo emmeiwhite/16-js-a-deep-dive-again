@@ -44,7 +44,22 @@ const imran = {
   calcAge: () => {
     // Since, it is an arrow function, it will not have its own this variable.
     console.log(this) // It points to the outer environment of the object imran
+    return 2024 - this.dob
   }
 }
 
 imran.calcAge()
+
+/* --- Borrowing method from an object, let's see how it goes --- */
+const rouf = {
+  year: 1990,
+  calcAge: function () {
+    return 2024 - this.year
+  }
+}
+const rafia = {
+  year: 1993
+}
+
+rafia.calcAge = rouf.calcAge //it is similar to adding a method definition to the rafia object
+console.log('age of rafia is :', rafia.calcAge()) // rafia is now the "owner" of calcAge as well, so we'll successfully be able to borrow from rouf object which also has the year property
