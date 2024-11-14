@@ -1,4 +1,7 @@
 'use strict'
+
+/** this is a special keyword or a variable and by default this points to the owner of the function in which the this keyword is used (Almost 100% times some parent object!) */
+
 console.log(this) // Points to the window object
 
 // regular function or function expression
@@ -24,3 +27,24 @@ const calcPrice = (advancePayment, currentPrice) => {
 
 calcAge(1992)
 calcPrice(30, 19)
+
+/** Object Example: */
+const rawdha = {
+  dob: 1998,
+  calcAge: function () {
+    // Function Expression
+    return 2024 - this.dob
+  }
+}
+
+console.log(rawdha.calcAge())
+
+const imran = {
+  dob: 1992,
+  calcAge: () => {
+    // Since, it is an arrow function, it will not have its own this variable.
+    console.log(this) // It points to the outer environment of the object imran
+  }
+}
+
+imran.calcAge()
