@@ -21,3 +21,9 @@ foo() // Regular function are hoisted as a whole actual function
 function foo() {
   console.log('hello!')
 }
+
+foobar() // ReferenceError: Cannot access foobar before initialization
+
+// Function Expression
+const foobar = function () {}
+// Here we note that regular expression has been declared with const, for let we'll get the same error above on line 25: ReferenceError: Cannot access foobar before initialization
