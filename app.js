@@ -24,16 +24,35 @@ function foo() {
 try {
   foobar() // ReferenceError: Cannot access foobar before initialization
 } catch (e) {
-  console.log(' Error Handled! for smooth program execution', e)
+  console.log('ReferenceError Handled')
 }
 
 // Function Expression
 const foobar = function () {}
 // Here we note that regular expression has been declared with const, for let we'll get the same error above on line 25: ReferenceError: Cannot access foobar before initialization
 
+/* --- Very Important: SyntaxErrors are not caught with try/catch block
 function move() {
-  console.log(progress) // ReferenceError: Cannot access progress before initialization
-  const progress
+    try {
+        const progress; 
+        // SyntaxError occurs during parse time not at run time try{}catch handles code at run tim
+    } catch (error) {
+         console.log('SyntaxError handled!')
+    }
 }
 
 move()
+--- */
+
+/* --- const progress; // SyntaxError: Missing initializer in const declaration --- */
+
+/*--- EXAMPLE: Dangers of Hoisting! --- */
+
+console.log(numberOfProducts)
+
+if (!numberOfProducts) deleteProductsFromCart()
+var numberOfProducts = 10
+
+function deleteProductsFromCart() {
+  console.log('all the products are deleted successfully!!')
+}
