@@ -62,4 +62,35 @@ const rafia = {
 }
 
 rafia.calcAge = rouf.calcAge //it is similar to adding a method definition to the rafia object
-console.log('age of rafia is :', rafia.calcAge()) // rafia is now the "owner" of calcAge as well, so we'll successfully be able to borrow from rouf object which also has the year property
+console.log('age of rafia is :', rafia.calcAge())
+// rafia is now the "owner" of calcAge as well, so we'll successfully be able to borrow from rouf object which also has the year property. this always points to the left of what is calling it (the object calling it)
+
+/** --- Question-5: A scenario in which we are completing trying to assign a method to some other value not object as above --- */
+
+const car = {
+  price: 2345666,
+  applyBreak: function () {
+    console.log(this)
+  }
+}
+
+// A standalone function
+const fxn = car.applyBreak
+
+fxn()
+
+const bottle = {
+  color: 'red',
+  // The arrow function, this point to the surrounding environment of current object
+  keepWaterHot: () => {
+    console.log(this) // Window
+  }
+}
+
+bottle.keepWaterHot()
+
+// Function borrowing
+
+const waterBottle = bottle.keepWaterHot
+
+waterBottle()
