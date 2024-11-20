@@ -30,9 +30,15 @@ btn.addEventListener('click', e => {
 
 /** --- Event Propagation: Event Capturing and Event Bubbling --- */
 
+const grandParent = document.querySelector('.grand-parent')
 const parent = document.querySelector('.parent')
 const child = document.querySelector('.child')
-const grandParent = document.querySelector('.grand-parent')
+
+/** --- 2) Let's figure out Event Bubbling! --- */
+
+child.addEventListener('click', e => {
+  console.log('Child Clicked!')
+})
 
 /** --- 1) Let's figure out Event Capture --- */
 parent.addEventListener(
