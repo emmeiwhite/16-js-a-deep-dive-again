@@ -48,3 +48,5 @@ const copyImran = Object.assign({}, imranBeforeMarriage)
 
 copyImran.family.push('wife')
 console.log(copyImran)
+
+/** L */
