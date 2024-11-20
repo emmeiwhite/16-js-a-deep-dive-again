@@ -43,6 +43,14 @@ parent.addEventListener(
   true // true makes it a capture phase
 )
 
+// Here, we notice that though we'll click within the parent element in Chrome, which is set to the capturing mode:true.
+
+/**
+ * We expect this output:
+ * Grand Parent Clicked!
+ * Parent is clicked!
+ * due to capturing which happens from the top of the document to the target element.
+ */
 grandParent.addEventListener('click', function (e) {
   console.log('Grand Parent Clicked!')
 })
