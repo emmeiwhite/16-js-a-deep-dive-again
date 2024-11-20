@@ -14,3 +14,15 @@ button.classList.add('btn')
 button.textContent = 'Got it!'
 
 container.insertAdjacentElement('beforeend', button)
+
+/* --- 2) Remove Child --- */
+// Old method to remove a child: message.parentElement.removeChild(message)
+// Modern method (with good Browser Support as well) delete()
+
+const btn = document.querySelector('.btn')
+btn.addEventListener('click', e => {
+  setTimeout(() => {
+    // e.target.remove()
+    btn.remove()
+  }, 3000)
+})
