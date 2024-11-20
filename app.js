@@ -26,3 +26,25 @@ btn.addEventListener('click', e => {
     btn.remove()
   }, 3000)
 })
+
+/** --- Event Propagation: Event Capturing and Event Bubbling --- */
+
+const parent = document.querySelector('.parent')
+const child = document.querySelector('.child')
+
+// parent.addEventListener(
+//   'click',
+//   () => {
+//     console.log('Parent is clicked!')
+//   },
+//   true // true makes it a capture phase
+// )
+
+child.addEventListener('click', event => {
+  console.log('Child clicked!')
+  //   event.stopPropagation()
+})
+
+parent.addEventListener('click', () => {
+  console.log('Parent clicked in the bubbling phase')
+})
