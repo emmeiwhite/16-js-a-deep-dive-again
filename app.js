@@ -49,6 +49,10 @@ parent.addEventListener(
   true // true makes it a capture phase
 )
 
+grandParent.addEventListener('click', function (e) {
+  console.log('Grand Parent Clicked!')
+})
+
 // Here, we notice that though we'll click within the parent element in Chrome, which is set to the capturing mode:true.
 
 /**
@@ -56,7 +60,19 @@ parent.addEventListener(
  * Grand Parent Clicked!
  * Parent is clicked!
  * due to capturing which happens from the top of the document to the target element.
+ *
+ * THIS IS NOT THE OUTPUT HOWEVER:
+ *
+ * 1) Capturing happens first since the click on child div is also a click on parent div and parent div is in capturing mode. So, capturing event is fired first.
+ *
+ * 2) Then both the grandParent and child are operating in regular bubbling mode.
+ * So, the click event on child will first run its own event handler code,
+ * Then the event will bubble to the parents, until it reaches grandparent and the respective callback will be executed!
  */
-grandParent.addEventListener('click', function (e) {
-  console.log('Grand Parent Clicked!')
-})
+
+/* --- 
+OUTPUT:
+Parent is clicked!
+Child Clicked!
+Grand Parent Clicked!
+--- */
