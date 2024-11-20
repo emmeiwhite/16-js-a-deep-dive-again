@@ -20,6 +20,7 @@ container.insertAdjacentElement('beforeend', button)
 // Modern method (with good Browser Support as well) delete()
 
 const btn = document.querySelector('.btn')
+
 btn.addEventListener('click', e => {
   setTimeout(() => {
     // e.target.remove()
@@ -31,20 +32,17 @@ btn.addEventListener('click', e => {
 
 const parent = document.querySelector('.parent')
 const child = document.querySelector('.child')
+const grandParent = document.querySelector('.grand-parent')
 
-// parent.addEventListener(
-//   'click',
-//   () => {
-//     console.log('Parent is clicked!')
-//   },
-//   true // true makes it a capture phase
-// )
+/** --- 1) Let's figure out Event Capture --- */
+parent.addEventListener(
+  'click',
+  function (e) {
+    console.log('Parent is clicked!')
+  },
+  true // true makes it a capture phase
+)
 
-child.addEventListener('click', event => {
-  console.log('Child clicked!')
-  //   event.stopPropagation()
-})
-
-parent.addEventListener('click', () => {
-  console.log('Parent clicked in the bubbling phase')
+grandParent.addEventListener('click', function (e) {
+  console.log('Grand Parent Clicked!')
 })
