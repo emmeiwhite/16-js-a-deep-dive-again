@@ -50,6 +50,16 @@ const Book = function (title, author, price) {
   this.title = title
   this.author = author
   this.price = price
+
+  // Adding methods to the object (think of this pointing to that object! this) | However this is not recommended! Never do this way
+  this.userDetails = function () {
+    return `Title: ${this.title}, Author: ${this.author}, Price: ${this.price}`
+  }
 }
 
-const book1 = new Book('Sacred Knowledge', 'Ibn-ul-Qayyim', 456)
+// Created 3 objects:
+const book1 = new Book('Sacred Knowledge', 'Ibn_Jawzi', 456)
+const book2 = new Book('Do not be sad', 'Al-Areefi', 555)
+const book3 = new Book('Al-Fawaid', 'Ibnul-Qayyim', 878)
+
+// We have added userDetails on the constructor function pattern, however this is not encouraged! Because for each object created this way, the new userDetails method will be created and it is not good for 2 reasons: 1) More Memory consumption         2) Redundancy
