@@ -27,4 +27,29 @@ function Person(firstName, lastName) {
   /*  Step-4: The created object is finally returned from the constructor function ---*/
 }
 
-new Person('john', 'smilga')
+const john = new Person('john', 'smilga')
+console.log(john)
+
+/* --- Arrow function cannot be used as the constructor function --- */
+const Student = (name, age) => {
+  this.name = name
+  this.age = age
+}
+
+/**
+ *
+ * const student = new Student('john', '32')
+ * app.js:41 Uncaught TypeError: Student is not a constructor
+
+ * NOTE: An arrow function cannot be used as the constructor function!
+ */
+
+// Exercise: Function Expression
+
+const Book = function (title, author, price) {
+  this.title = title
+  this.author = author
+  this.price = price
+}
+
+const book1 = new Book('Sacred Knowledge', 'Ibn-ul-Qayyim', 456)
