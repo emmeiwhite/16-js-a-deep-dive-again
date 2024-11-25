@@ -63,3 +63,23 @@ const book2 = new Book('Do not be sad', 'Al-Areefi', 555)
 const book3 = new Book('Al-Fawaid', 'Ibnul-Qayyim', 878)
 
 // We have added userDetails on the constructor function pattern, however this is not encouraged! Because for each object created this way, the new userDetails method will be created and it is not good for 2 reasons: 1) More Memory consumption         2) Redundancy
+
+/** --- Every function except arrow function has a prototype property but its main use case is during the creation of objects with constructor function --- */
+
+/** --- Every object has a hidden link to this prototype object, from where it can inherit methods and properties __proto__ (or [[Prototype]] ---- */
+
+const Table = function (height, width) {
+  this.height = height
+  this.width = width
+}
+
+/** --- Adding methods to prototype object --- */
+
+Table.prototype.calArea = function () {
+  return parseFloat((this.height * this.width).toFixed(2))
+}
+
+const table1 = new Table(2, 1.5)
+const table2 = new Table(3, 2)
+
+console.log(table1.__proto__)
