@@ -40,4 +40,6 @@ function Person(firstName, lastName) {
   // this points to an empty object as soon as the function is invoked with a new keyword
 }
 
-new Person('john', 'smilga')
+const person1 = new Person('john', 'smilga')
+
+console.log(person1.__proto__ === Person.prototype) // which means that the  __proto__ property of the object person1 is linked (or points) to the Person constructor's prototype property. We say person1 is linked to that prototype of Person. The statement is true! Let's give it a shot

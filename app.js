@@ -82,4 +82,4 @@ Table.prototype.calArea = function () {
 const table1 = new Table(2, 1.5)
 const table2 = new Table(3, 2)
 
-console.log(table1.__proto__)
+console.log(table1.__proto__ === Table.prototype)
