@@ -16,6 +16,35 @@ addNums('1', 6) // outputs 16, which is a bug
 
 console.log('Still Running')
 
-console.log(c + d) // ReferenceError: c is not defined
+/* --- ReferenceError: Example
+    
+    console.log(c + d) // ReferenceError: c is not defined
+    
+    console.log('Program never reaches to this point due to a reference error above')
+    
+    --- */
 
-console.log('Program never reaches to this point due to a reference error above')
+/* --- TypeError: Examples
+    a) example-1
+    const isTrue = true
+    
+    isTrue = 'false' // TypeError: Assignment to constant variable.
+
+    b) example-2
+
+let myVar
+console.log(myVar.length) // app.js:38 Uncaught TypeError: Cannot read properties of undefined (reading 'length')
+
+    c) example-3
+let num = 10
+num.push(5) // TypeError: num.push is not a function
+
+    d) example-4
+console.log(null.toString())
+
+    e) example-5
+const person = { name: 'Alice' }
+
+console.log(person.age.toString())
+
+ --- */
