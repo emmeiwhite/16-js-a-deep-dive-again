@@ -88,3 +88,12 @@ console.log(table1.__proto__ === Table.prototype)
 console.log(table1.isPrototypeOf(Table)) // false
 
 console.log(Table.prototype.isPrototypeOf(table1))
+
+/** ---
+ *  Let's do some practical stuff and learn new operators & functions in prototypal inheritance !
+ * ---*/
+
+// Q:1) How to check types in a reliable way?
+// A:1) ConstructorFunction.prototype.toString.call(true) ;// Object boolean
+
+/**  */
