@@ -48,3 +48,19 @@ const person = { name: 'Alice' }
 console.log(person.age.toString())
 
  --- */
+
+try {
+  console.log(a + b)
+} catch (err) {
+  console.log(err)
+}
+
+console.log('program continues!!!')
+
+// We can also throw on purpose at times with throw new ReferenceError() or throw new Error()
+
+try {
+  throw new ReferenceError()
+} catch (err) {
+  console.log('ReferenceError handled!!!')
+}
