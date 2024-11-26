@@ -12,7 +12,10 @@ function addNums(a, b) {
 }
 
 addNums(3, 6)
+addNums('1', 6) // outputs 16, which is a bug
 
 console.log('Still Running')
 
-// Let's introduce a bug
+console.log(c + d) // ReferenceError: c is not defined
+
+console.log('Program never reaches to this point due to a reference error above')
