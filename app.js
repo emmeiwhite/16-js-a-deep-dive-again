@@ -62,5 +62,27 @@ console.log('program continues!!!')
 try {
   throw new ReferenceError()
 } catch (err) {
+  console.log(err)
   console.log('ReferenceError handled!!!')
+}
+
+console.log('And again the program continues to run, Program execution does not stop')
+
+try {
+  console.log('Hello'.pop()) //TypeError: "Hello".pop is not a function
+} catch (err) {
+  console.log('TypeError is handled!!')
+}
+
+/** --- 
+ * Let's see some syntax errors & these are Compilation Errors and cannot be handled with try/catch 
+ * */
+console.log('We are here! We are here!')
+// const abc; Uncaught SyntaxError: Missing initializer in const declaration (at app.js:82:7)
+const abc 
+
+try {
+    let y 10; // SyntaxError:
+} catch (error) {
+    console.log('Code never reaches here becasue the SyntaxError are not caught by try/catch block')
 }
