@@ -82,12 +82,11 @@ Table.prototype.calArea = function () {
 const table1 = new Table(2, 1.5)
 const table2 = new Table(3, 2)
 
-// we say: table1 & table2 are prototypes of Table constructor! Very important to understand
-
-console.log(table1.__proto__ === Table.prototype)
+// we say: table1 & table2 are instances of Table constructor
+console.log(table1.__proto__ === Table.prototype) // true
 console.log(table1.isPrototypeOf(Table)) // false
 
-console.log(Table.prototype.isPrototypeOf(table1))
+console.log(Table.prototype.isPrototypeOf(table1)) // true, Table.prototype is prototype of all the objects instances created with new Table()
 
 /** ---
  *  Let's do some practical stuff and learn new operators & functions in prototypal inheritance !

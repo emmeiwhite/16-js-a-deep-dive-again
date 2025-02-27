@@ -1,88 +1,72 @@
-// 1) Bug vs Error
+/* --- Data Types | New Explorations
+console.log(Number.MAX_VALUE) // 1.7976931348623157e+308
+console.log(Number.MAX_VALUE * 2) // Infinity
+console.log(Number.MAX_VALUE * -2) // Infinity
+console.log(Number.MIN_VALUE * -1) // --5e-324 (Minimum value closer to 0)
+console.log(Math.sqrt(-1)) // NaN (Imaginary Numbers)
+console.log(Number.MAX_SAFE_INTEGER) // 9007199254740991
+
+--- */
+// UnderStanding debugger in Error Handling & Debugging topic
 
 /**
- * Bug: A bug causes a program to run in an unintended way.
- * Error: An error causes a program to stop running
+ * Step Out: Understanding "Step Out" in Debuggers
+The "Step Out" button in a debugger is used to exit the current function and return to the caller function. If you're currently stepping through a function and want to skip the rest of it, pressing Step Out allows the function to run to completion and returns control to the point where the function was called.
  *
- * Common Error Types: Syntax, Reference and  TypeErrors
- */
-
-function addNums(a, b) {
-  console.log(a + b)
-}
-
-addNums(3, 6)
-addNums('1', 6) // outputs 16, which is a bug
-
-console.log('Still Running')
-
-/* --- ReferenceError: Example
-    
-    console.log(c + d) // ReferenceError: c is not defined
-    
-    console.log('Program never reaches to this point due to a reference error above')
-    
-    --- */
-
-/* --- TypeError: Examples
-    a) example-1
-    const isTrue = true
-    
-    isTrue = 'false' // TypeError: Assignment to constant variable.
-
-    b) example-2
-
-let myVar
-console.log(myVar.length) // app.js:38 Uncaught TypeError: Cannot read properties of undefined (reading 'length')
-
-    c) example-3
-let num = 10
-num.push(5) // TypeError: num.push is not a function
-
-    d) example-4
-console.log(null.toString())
-
-    e) example-5
-const person = { name: 'Alice' }
-
-console.log(person.age.toString())
-
- --- */
-
-try {
-  console.log(a + b)
-} catch (err) {
-  console.log(err)
-}
-
-console.log('program continues!!!')
-
-// We can also throw on purpose at times with throw new ReferenceError() or throw new Error()
-
-try {
-  throw new ReferenceError()
-} catch (err) {
-  console.log(err)
-  console.log('ReferenceError handled!!!')
-}
-
-console.log('And again the program continues to run, Program execution does not stop')
-
-try {
-  console.log('Hello'.pop()) //TypeError: "Hello".pop is not a function
-} catch (err) {
-  console.log('TypeError is handled!!')
-}
-
-/** --- 
- * Let's see some syntax errors & these are Compilation Errors and cannot be handled with try/catch 
  * */
-console.log('We are here! We are here!')
-// const abc; Uncaught SyntaxError: Missing initializer in const declaration (at app.js:82:7)
-const abc 
+
+function outerFunction() {
+  function innerFunction() {
+    let sum = 0
+    for (let i = 1; i <= 5; i++) {
+      sum += i // Debug here
+    }
+    console.log('Sum in innerFunction:', sum)
+  }
+
+  innerFunction()
+}
+
+outerFunction() // Caller Function
+
+// function firstFunction() {
+//   console.log('Entering firstFunction')
+
+//   function secondFunction() {
+//     console.log('Entering secondFunction')
+//     let message = 'Hello from secondFunction' // Debug here
+//     console.log(message)
+//   }
+
+//   secondFunction()
+//   console.log('Back in firstFunction')
+// }
+
+// firstFunction()
+// console.log('End of program')
+
+// ocnsole.log('start')
+
+// const msg "Hello";
 
 try {
-    let y 10; // SyntaxError:
+  const msg = 'Hello'
+  msg += ' world' // TypeError: Assignment to a constant variable
 } catch (error) {
-    console.log('Code never reaches here becasue the SyntaxError are not caught by try/catch block')
+  console.log(error)
 }
+
+try {
+  onsole.log(x) // ReferenceError: onsole is not defined
+} catch (error) {
+  console.log(error)
+}
+
+try {
+  const obj = null
+  console.log(obj.birthYear) // TypeError:Cannot read properties of null (reading birthYear)
+} catch (error) {
+  console.log(error)
+}
+
+console.log('Program continues !!!')

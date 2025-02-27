@@ -9,7 +9,7 @@ function abc() {
 
 function abbc() {
   console.log(cart) // undefined; Hoisting in place!
-  var cart = 'I am a cart, woohooo hoo hoo' // In old days this without declared variable used to go to the global scope, but for some reason now: It is spitting error: ReferenceError: cart is not defined
+  var cart = 'I am a cart, woohooo hoo hoo' // In old days without declared variable, used to go to the global scope, but for some reason now: It is spitting error: ReferenceError: cart is not defined
 }
 
 abbc()
