@@ -30,3 +30,21 @@ listItems.addEventListener('click', function (e) {
     console.log(`You clicked on : ${e.target.textContent}`)
   }
 })
+
+const itemAddBtn = document.querySelector('.add-item-btn')
+
+function addNewItem() {
+  itemAddBtn.disabled = true
+
+  const listItem = document.createElement('LI')
+  listItem.textContent = 'New Item Added'
+
+  listItems.appendChild(listItem)
+
+  // Disable the button
+
+  setTimeout(() => {
+    itemAddBtn.disabled = false
+  }, 1000)
+}
+itemAddBtn.addEventListener('click', addNewItem)
