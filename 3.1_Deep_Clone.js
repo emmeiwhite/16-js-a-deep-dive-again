@@ -52,3 +52,36 @@ johnAfterMarriage.address['pin'] = 234343
 
 console.log(johnBeforeMarriage)
 console.log(johnAfterMarriage)
+
+/*
+console.log(customer)
+console.log(customer2)
+
+customer2.cart.push('honey')
+console.log(customer)
+console.log(customer2)
+// the above examples are all shallow clone.
+*/
+
+/** Let's perform deepClone */
+
+const customerDeep = structuredClone(customer)
+customerDeep.cart.push('honey')
+
+console.log(customer)
+console.log(customerDeep)
+
+// Example-2:
+
+const obj = {
+  a: 2,
+  c: {
+    d: 3
+  }
+}
+
+const obj2 = Object.assign({}, obj)
+obj2.c.d = 34
+
+console.log(obj)
+console.log(obj2)
